@@ -97,7 +97,7 @@ namespace GuessGame
             {
                 // failed
                 alert.Visible = true;
-                alert_message.Text = "You just lost it.";
+                alert_message.Text = "Game Over.";
                 SetTimeout(3000, () =>
                 {
                     alert.Visible = false;
