@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,6 @@ namespace GuessGame
 
         int lives = 3;
         int rand_num;
-        public WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -45,14 +44,11 @@ namespace GuessGame
                     alert.Visible = true;
                     alert_message.Text = "Hooray!!, you guessed it right.";
                     DisableAllButtons();
-                    wplayer.URL = @"C:\Users\Perfect\Desktop\success.mp3";
-                    wplayer.controls.play();
                     SetTimeout(3000, () =>
                     {
                         alert.Visible = false;
                         alert_message.Text = String.Empty;
                         button1.Enabled = true;
-                        wplayer.controls.stop();
                     });
                 }
                 else
@@ -72,14 +68,11 @@ namespace GuessGame
             {
                 // failed
                 alert.Visible = true;
-                alert_message.Text = "You just lost it.";
-                wplayer.URL = @"C:\Users\Perfect\Desktop\failure.mp3";
-                wplayer.controls.play();
+                alert_message.Text = "Game Over.";
                 SetTimeout(3000, () =>
                 {
                     alert.Visible = false;
                     alert_message.Text = String.Empty;
-                    wplayer.controls.stop();
                 });
                 button1.Enabled = true;
                 DisableAllButtons();
